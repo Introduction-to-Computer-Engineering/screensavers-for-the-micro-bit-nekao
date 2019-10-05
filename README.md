@@ -109,11 +109,25 @@ This assignment asks you to design a program and implement it in micro:bit JavaS
 
 ### SS 1
 
-_[Your description of screensaver 1]_
+This screen randomly places different blocks of Images.
 
 ### SS 2 
 
-_[And so on]_
+This screen places two random points around the screen.
+
+### SS 3 
+
+This screen starts from the top corner and randomly fills the screen until bottom. 
+
+### SS 4 
+
+This Screen Starts from top and picks two random point to turn on then off.
+
+### SS 5 
+
+This screen is my bonus  and I chose to display a dog or cat animation. 
+
 
 ## Demo URL
+https://imgur.com/gallery/cMt7jQU
 
