@@ -4,24 +4,13 @@ input.onButtonPressed(Button.A, function () {
         running_time_ms = 0
         if (input.isGesture(Gesture.TiltLeft)) {
             for (let i = 0; i < 10; i++) {
-                basic.showAnimation(`
-                # . . # . . # . # . # . . # . . # . # . # . . # . # . . # .
-                # . . # # # . . # # # . . # # # . . # # # . . # # # . . # #
-                # # # # . # # # # . # # # # . # # # # . # # # # . # # # # .
-                # # # # . # # # # . # # # # . # # # # . # # # # . # # # # .
-                # . # . # # # . # . # # . # . # . . # . . # # . . # . # . #
-                `, 700)
-                basic.clearScreen()
+            	
             }
         } else if (input.isGesture(Gesture.LogoDown)) {
             for (let i = 0; i < 10; i++) {
-                basic.showAnimation(`
-                # . . . # # . . . #
-                # # # # # # # # # #
-                # . . . # # # . # #
-                # . # . # # . # . #
-                . # # # . . # # # .
-                `, 700)
+                for (let index = 0; index <= 4; index++) {
+                    led.plot(index, Math.randomRange(0, 5))
+                }
             }
         } else if (input.isGesture(Gesture.ScreenUp)) {
             for (let i = 0; i < 10; i++) {
@@ -55,22 +44,46 @@ input.onButtonPressed(Button.A, function () {
         } else if (input.isGesture(Gesture.TiltRight)) {
             for (let i = 0; i < 10; i++) {
                 basic.showAnimation(`
-                . . # . . . . . . . . . . . . . . . . . . . . . . . . . . .
-                . # # # . . . # . . . . . . . . . . . . . . . . . . . # . . 
-                . # # # # . . # # . . . # . . . . . . . . # . . . . # # . . 
-                # # # # # . # # # # . . # # . . . # . . . # # . . . # # # . 
-                # # # # # # # # # # . # # # # . . # # . # # # # . # # # # # 
+
+                            
+                # . . # . . # . # . # . . # . . # . # . # . . # . # . . # .
+
+                            
+                # . . # # # . . # # # . . # # # . . # # # . . # # # . . # #
+
+                            
+                # # # # . # # # # . # # # # . # # # # . # # # # . # # # # .
+
+                            
+                # # # # . # # # # . # # # # . # # # # . # # # # . # # # # .
+
+                            
+                # . # . # # # . # . # # . # . # . . # . . # # . . # . # . #
+
+                            
                 `, 700)
             }
         } else if (input.isGesture(Gesture.LogoUp)) {
             basic.showAnimation(`
+
+                        
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+                        
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+                        
             . . # . . . . # . # . . # . . . # # . . . . # . . . . # . .
+
+                        
             . . # . . . . # . . . . # . # . . # . . . # # . . . . # . .
+
+                        
             . . # . . . . # . . . . # . . . . # . # . . # . # . # # . #
+
+                        
             `, 700)
-            }
+        }
     }
 })
 input.onButtonPressed(Button.B, function () {
