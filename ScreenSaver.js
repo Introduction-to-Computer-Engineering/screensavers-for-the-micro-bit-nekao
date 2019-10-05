@@ -10,6 +10,7 @@ input.onButtonPressed(Button.A, function () {
             for (let i = 0; i < 10; i++) {
                 for (let index = 0; index <= 4; index++) {
                     led.plot(index, Math.randomRange(0, 5))
+                    led.setBrightness(64)
                 }
             }
         } else if (input.isGesture(Gesture.ScreenUp)) {
@@ -97,6 +98,7 @@ let running_time_ms = 0
 let speed = 0
 let inner = 0
 speed = 10
+led.setBrightness(255)
 while (!(input.buttonIsPressed(Button.A))) {
     basic.showIcon(IconNames.Heart)
     basic.showIcon(IconNames.SmallHeart)
