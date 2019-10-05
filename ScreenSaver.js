@@ -4,13 +4,21 @@ input.onButtonPressed(Button.A, function () {
         running_time_ms = 0
         if (input.isGesture(Gesture.TiltLeft)) {
             for (let i = 0; i < 10; i++) {
-            	
+                for (let yindex2 = 0; yindex2 <= 4; yindex2++) {
+                    for (let xindex = 0; xindex <= 4; xindex++) {
+                        led.plot(xindex, yindex2)
+                        basic.pause(100)
+                        led.unplot(xindex, yindex2)
+                        basic.pause(100)
+                    }
+                }
             }
         } else if (input.isGesture(Gesture.LogoDown)) {
             for (let i = 0; i < 10; i++) {
                 for (let index = 0; index <= 4; index++) {
                     led.plot(index, Math.randomRange(0, 5))
                     led.setBrightness(64)
+                    led.plot(index, Math.randomRange(0, 5))
                 }
             }
         } else if (input.isGesture(Gesture.ScreenUp)) {
@@ -65,25 +73,13 @@ input.onButtonPressed(Button.A, function () {
                 `, 700)
             }
         } else if (input.isGesture(Gesture.LogoUp)) {
-            basic.showAnimation(`
-
-                        
-            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-                        
-            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-                        
-            . . # . . . . # . # . . # . . . # # . . . . # . . . . # . .
-
-                        
-            . . # . . . . # . . . . # . # . . # . . . # # . . . . # . .
-
-                        
-            . . # . . . . # . . . . # . . . . # . # . . # . # . # # . #
-
-                        
-            `, 700)
+            for (let m = 0; m <= list.length - 1; m++) {
+                for (let n = 0; n <= list[m] - 1; n++) {
+                    led.plot(Math.randomRange(0, 5), Math.randomRange(0, 5))
+                }
+                basic.pause(1000)
+                basic.clearScreen()
+            }
         }
     }
 })
@@ -95,8 +91,11 @@ input.onButtonPressed(Button.B, function () {
 })
 let reverse = 0
 let running_time_ms = 0
+let list: number[] = []
 let speed = 0
 let inner = 0
+let yindex = 0
+let index2 = 0
 speed = 10
 led.setBrightness(255)
 while (!(input.buttonIsPressed(Button.A))) {
@@ -104,3 +103,4 @@ while (!(input.buttonIsPressed(Button.A))) {
     basic.showIcon(IconNames.SmallHeart)
     basic.clearScreen()
 }
+list = [5, 2, 1, 3, 4]
