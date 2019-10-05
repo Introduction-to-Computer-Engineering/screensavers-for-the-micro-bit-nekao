@@ -1,9 +1,26 @@
-input.onButtonPressed(Button.A, function () {
+input.onButtonPressed(Button.B, function () {
+    while (!(input.buttonIsPressed(Button.A))) {
+        basic.showIcon(IconNames.Heart)
+        basic.showIcon(IconNames.SmallHeart)
+        basic.clearScreen()
+    }
+})
+let reverse = 0
+let inner = 0
+let yindex = 0
+let index2 = 0
+let speed = 10
+led.setBrightness(255)
+while (!(input.buttonIsPressed(Button.A))) {
+    basic.showIcon(IconNames.Heart)
+    basic.showIcon(IconNames.SmallHeart)
     basic.clearScreen()
-    if (input.runningTime() >= 900) {
-        running_time_ms = 0
+}
+let list = [5, 2, 1, 3, 4]
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.A) && input.runningTime() >= 900) {
         if (input.isGesture(Gesture.TiltLeft)) {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 5; i++) {
                 for (let yindex2 = 0; yindex2 <= 4; yindex2++) {
                     for (let xindex = 0; xindex <= 4; xindex++) {
                         led.plot(xindex, yindex2)
@@ -14,7 +31,7 @@ input.onButtonPressed(Button.A, function () {
                 }
             }
         } else if (input.isGesture(Gesture.LogoDown)) {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 5; i++) {
                 for (let index = 0; index <= 4; index++) {
                     led.plot(index, Math.randomRange(0, 5))
                     led.setBrightness(64)
@@ -22,7 +39,7 @@ input.onButtonPressed(Button.A, function () {
                 }
             }
         } else if (input.isGesture(Gesture.ScreenUp)) {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 5; i++) {
                 for (let outer23 = 0; outer23 <= 4; outer23++) {
                     reverse = 4 - outer23
                     for (let inner23 = 0; inner23 <= 4; inner23++) {
@@ -73,34 +90,15 @@ input.onButtonPressed(Button.A, function () {
                 `, 700)
             }
         } else if (input.isGesture(Gesture.LogoUp)) {
-            for (let m = 0; m <= list.length - 1; m++) {
-                for (let n = 0; n <= list[m] - 1; n++) {
-                    led.plot(Math.randomRange(0, 5), Math.randomRange(0, 5))
+            for (let i = 0; i < 5; i++) {
+                for (let m = 0; m <= list.length - 1; m++) {
+                    for (let n = 0; n <= list[m] - 1; n++) {
+                        led.plot(Math.randomRange(0, 5), Math.randomRange(0, 5))
+                    }
+                    basic.pause(1000)
+                    basic.clearScreen()
                 }
-                basic.pause(1000)
-                basic.clearScreen()
             }
         }
     }
 })
-input.onButtonPressed(Button.B, function () {
-    while (!(input.buttonIsPressed(Button.A))) {
-        basic.showIcon(IconNames.Heart)
-        basic.showIcon(IconNames.SmallHeart)
-    }
-})
-let reverse = 0
-let running_time_ms = 0
-let list: number[] = []
-let speed = 0
-let inner = 0
-let yindex = 0
-let index2 = 0
-speed = 10
-led.setBrightness(255)
-while (!(input.buttonIsPressed(Button.A))) {
-    basic.showIcon(IconNames.Heart)
-    basic.showIcon(IconNames.SmallHeart)
-    basic.clearScreen()
-}
-list = [5, 2, 1, 3, 4]
